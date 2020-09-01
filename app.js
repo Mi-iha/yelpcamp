@@ -12,18 +12,25 @@ var express = require('express'),
 	User = require('./models/user'),
 	seedDB = require('./seeds');
 
+// Requiring dotenv package
+require('dotenv').config();
+var password = process.env.DB_PASS;
+
 // Requiring routes
 var campgroundRoutes = require('./routes/campgrounds'),
 	commentsRoutes = require('./routes/comments'),
 	indexRoutes = require('./routes/index');
 
+// mongoose.connect('mongodb://localhost:27017/yelp_camp_v12', // connect to yelp_camp database
 mongoose
-	// connect to yelp_camp database
-	.connect('mongodb://localhost:27017/yelp_camp_v12', {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	})
-	.then(() => console.log('Connected to DB!'))
+	.connect(
+		`mongodb+srv://adminM:${password}@cluster0.umb0m.mongodb.net/yelp_camp_deployed?retryWrites=true&w=majority`,
+		{
+			useNewUrlParser: true,
+			useUnifiedTopology: true
+		}
+	)
+	.then(() => console.log('Connected to DB yey!'))
 	.catch((error) => console.log(error.message));
 
 app.use(bodyParser.urlencoded({ extended: true })); // to support URL-encoded bodies
@@ -62,6 +69,6 @@ app.use('/', indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentsRoutes);
 
-app.listen(process.env.PORT || 3000, process.env.IP, function() {
+app.listen(process.env.PORT, process.env.IP, function() {
 	console.log('The YelpCamp Server has started!');
 });
