@@ -14,22 +14,21 @@ var express = require('express'),
 
 // Requiring dotenv package
 require('dotenv').config();
-var password = process.env.DB_PASS;
+var db = process.env.MONGODB_URL;
 
 // Requiring routes
 var campgroundRoutes = require('./routes/campgrounds'),
 	commentsRoutes = require('./routes/comments'),
 	indexRoutes = require('./routes/index');
 
-// mongoose.connect('mongodb://localhost:27017/yelp_camp_v12', // connect to yelp_camp database
+// mongoose.connect('mongodb://localhost:27017/yelp_camp_v12', // connect to local yelp_camp database (yelp_camp_v12)
+
+// connect to mongoDB Atlas database (yelp_camp_deployed)
 mongoose
-	.connect(
-		`mongodb+srv://adminM:${password}@cluster0.umb0m.mongodb.net/yelp_camp_deployed?retryWrites=true&w=majority`,
-		{
-			useNewUrlParser: true,
-			useUnifiedTopology: true
-		}
-	)
+	.connect(db, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true
+	})
 	.then(() => console.log('Connected to DB yey!'))
 	.catch((error) => console.log(error.message));
 
