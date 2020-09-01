@@ -1,0 +1,105 @@
+body {
+	background-color: #000;
+}
+
+/* Style page content (Welcome + button) */
+#landing-header {
+	z-index: 1;
+	/* webpage can be viewed on 3 dimensional plane: x, y = left, right or up, down and z = forward/backwards into space. 
+    z-index =1  means it will come forward to us and will lay on top of any item that has z-index smaller than 1 */
+	position: relative;
+	/* to be able to use the z-index we need to change the position to something other than "static" which is the default value. 
+    If we use "static" it will ignore the z-index */
+	text-align: center; /* this will center the text horizontally */
+	padding-top: 40vh; /* this will center it vertically. vh = view hight */
+}
+
+#landing-header h1 {
+	color: #fff;
+}
+
+/* Style the unordered list: */
+
+.slideshow {
+	position: fixed; /* fix the ul to the window */
+	width: 100%;
+	height: 100%;
+	/* filling the entire screen by setting width and height to 100% */
+	top: 0;
+	left: 0;
+	/* positioning it in the top left corner */
+	z-index: 0;
+	/* set the z-index to 0 to keep the background images behind the rest of the page's content;  */
+	list-style: none;
+	/* list-style is set to none in order to hide the bullet points from the list's default styling;  */
+	margin: 0;
+	padding: 0;
+}
+
+/* style all of the list items: */
+.slideshow li {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-size: cover;
+	background-position: 50% 50%; /* this will center the image perfectly on the page */
+	background-repeat: no-repeat; /* image will not repeat vertically or horizontally */
+	opacity: 0; /* images will start faded-out and animation will fade them in */
+	z-index: 0; /* this will keep the images behind the Welcome text & button*/
+	animation: imageAnimation 50s linear infinite;
+	/* This is how we add an animation to an element; 
+    in this case we have an animation named imageAnimation (this is aritrary, 
+    we can call it whatever we want as long as it matches the keyframe rule below) 
+    that lasts for 50s (seconds), 
+    keeps linear timing (the whole animation runs at the same speed), and loops an infinite number of times */
+}
+
+/* Each list item is assigned a background-image and the last four need an animation-delay
+   (this way they all fire off one after the other in ten second intervals): */
+
+.slideshow li:nth-child(1) {
+	background-image: url(http://i.imgur.com/K3mPv14.jpg);
+}
+.slideshow li:nth-child(2) {
+	background-image: url(http://i.imgur.com/SBEmFpv.jpg);
+	animation-delay: 10s;
+}
+.slideshow li:nth-child(3) {
+	background-image: url(http://i.imgur.com/emvhOnb.jpg);
+	animation-delay: 20s;
+}
+.slideshow li:nth-child(4) {
+	background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+	animation-delay: 30s;
+}
+.slideshow li:nth-child(5) {
+	background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
+	animation-delay: 40s;
+}
+
+/* Create the keyframes for the animation: */
+
+@keyframes imageAnimation {
+	0% {
+		opacity: 0;
+		animation-timing-function: ease-in;
+	}
+	10% {
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	20% {
+		opacity: 1;
+	}
+	30% {
+		opacity: 0;
+	}
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr 
+Already added the modernizr CDN to our landing page's head element*/
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}
