@@ -12,22 +12,23 @@ var express = require('express'),
 	User = require('./models/user'),
 	seedDB = require('./seeds');
 
-// Requiring dotenv package
-require('dotenv').config();
-var db = process.env.MONGODB_URL;
-
 // Requiring routes
 var campgroundRoutes = require('./routes/campgrounds'),
 	commentsRoutes = require('./routes/comments'),
 	indexRoutes = require('./routes/index');
 
-mongoose
-	.connect(process.env.DATABASEURL, {
-		// connect to local yelp_camp database (yelp_camp_v12)
+// Requiring dotenv package
+require('dotenv').config();
+var db = process.env.MONGODB_URL;
 
-		// connect to mongoDB Atlas database (yelp_camp_deployed)
-		// mongoose
-		// 	.connect(db, {
+var url = process.env.DATABASEURL || 'mongodb://localhost:27017/yelp_camp_v12'; //as a good practice, define the variable with a backup in case the env. var. breaks
+// both MONGODB_URL and DATABASEURL are defined in Heroku as Config Vars
+
+// connect to local yelp_camp database (yelp_camp_v12) or mongoDB Atlas database (yelp_camp_deployed) via process.env.DATABASEURL
+mongoose
+	.connect(url, {
+		// connect only to mongoDB Atlas database (yelp_camp_deployed) via process.env.MONGODB_URL
+		// mongoose.connect(db, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true
 	})
