@@ -21,11 +21,13 @@ var campgroundRoutes = require('./routes/campgrounds'),
 	commentsRoutes = require('./routes/comments'),
 	indexRoutes = require('./routes/index');
 
-// mongoose.connect('mongodb://localhost:27017/yelp_camp_v12', // connect to local yelp_camp database (yelp_camp_v12)
-
-// connect to mongoDB Atlas database (yelp_camp_deployed)
 mongoose
-	.connect(db, {
+	.connect(process.env.DATABASEURL, {
+		// connect to local yelp_camp database (yelp_camp_v12)
+
+		// connect to mongoDB Atlas database (yelp_camp_deployed)
+		// mongoose
+		// 	.connect(db, {
 		useNewUrlParser: true,
 		useUnifiedTopology: true
 	})
