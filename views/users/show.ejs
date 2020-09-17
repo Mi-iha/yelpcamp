@@ -1,0 +1,29 @@
+<%- include("../partials/header") %>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h1><%= user.firstName + " " + user.lastName %></h1>
+        <div class="thumbnail">
+            <img src="<%= user.avatar %>" alt="user profile image">
+            <div class="caption">
+                <a href="mailto:<%= user.email %>"><%= user.email %></a>
+            </div>
+            <div>
+                Bacon ipsum dolor amet meatball t-bone brisket flank. Bresaola sirloin tri-tip chuck pastrami tongue boudin pork loin. Brisket tongue turducken porchetta fatback. Fatback turducken flank pork belly cow, andouille drumstick. Pastrami beef tail ham hock. Hamburger biltong frankfurter tenderloin flank. Chislic kevin ham fatback shankle spare ribs.
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 ">
+        <h3><%= user.username%>'s campgrounds:</h3>
+        <ul>
+            <% campgrounds.forEach(function(campground){ %>
+                <li><a href="/campgrounds/<%=campground.id%>"><%= campground.name %></a></li>
+            <% }) %>
+        </ul>
+    </div>
+</div> 
+
+
+
+<%- include("../partials/footer") %>

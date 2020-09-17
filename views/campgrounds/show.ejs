@@ -18,7 +18,8 @@
                     <h4> <a href="#"><%= campground.name %></a></h4>
                     <p><%= campground.description %></p>
                     <p> 
-                        <em>Submitted by: <%= campground.author.username %></em>
+                        
+                        <em>Submitted by: <a href="/users/<%= campground.author.id%>"><%= campground.author.username %></a></em>
                     </p>
                     <% if(currentUser && campground.author.id.equals(currentUser._id)) { %>  
                         <!-- currentUser comes from app.js file  where we set "res.locals.currentUser = req.user" -->

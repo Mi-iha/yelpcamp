@@ -9,3 +9,12 @@
 .delete-form {
 	display: inline;
 }
+
+#signUp {
+	text-align: center;
+}
+
+#registerForm {
+	width: 30%;
+	margin: 25px auto;
+}
