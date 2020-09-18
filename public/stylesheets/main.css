@@ -15,6 +15,11 @@ body {
 	flex-direction: column;
 }
 
+#generalContainer {
+	margin-top: 12vh;
+	flex: 1 0 auto;
+}
+
 .thumbnail img {
 	width: 100%;
 }
@@ -36,11 +41,6 @@ body {
 #loginForm {
 	width: 30%;
 	margin: 25px auto;
-}
-
-#generalContainer {
-	margin-top: 6%;
-	flex: 1 0 auto;
 }
 
 .footer {

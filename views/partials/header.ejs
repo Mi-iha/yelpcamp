@@ -37,7 +37,7 @@
          </div>
     </nav>   
 
-    <div class="container">
+    <div class="container" id="generalContainer">
         <% if (error && error.length >0) { %>
             <div class="alert alert-danger" role ="alert"><%= error %> </div> <!-- // comming from app.js: res.locals.error = req.flash('error'); -->
         <% }%>
@@ -45,5 +45,5 @@
         <% if (success && success.length >0) { %>
             <div class="alert alert-success" role ="alert"><%= success %> </div> <!--  // comming from app.js: res.locals.success = req.flash('success') -->
         <% }%>
-    </div> 
-    <div class="container" id ="generalContainer">
+    
+    
