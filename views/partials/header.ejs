@@ -4,13 +4,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <title>YelpCamp</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="/stylesheets/main.css">
     </head>
     <body>
 
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
+        <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-yelpcamp" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
@@ -21,10 +21,13 @@
                 <a href="/" class="navbar-brand">YelpCamp</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-nav-yelpcamp">
+                <ul class="nav navbar-nav">
+                    <li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>"><a href="/campgrounds">Home</a></li>
+                  </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <% if(!currentUser) { %>
-                        <li><a href="/login">Login</a></li>
-                        <li><a href="/register">Sign Up</a></li>
+                        <li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>"><a href="/login">Login</a></li>
+                        <li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>"><a href="/register">Sign Up</a></li>
                     <% } else { %>
                         <li><a href="/users/<%= currentUser.id%>">Signed In As: <%= currentUser.username %></a></li>
                         <li><a href="/logout">Logout</a></li>
@@ -43,4 +46,4 @@
             <div class="alert alert-success" role ="alert"><%= success %> </div> <!--  // comming from app.js: res.locals.success = req.flash('success') -->
         <% }%>
     </div> 
-    
+    <div class="container">

@@ -10,11 +10,13 @@
 	display: inline;
 }
 
-#signUp {
+#signUp,
+#login {
 	text-align: center;
 }
 
-#registerForm {
+#registerForm,
+#loginForm {
 	width: 30%;
 	margin: 25px auto;
 }
