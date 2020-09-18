@@ -45,6 +45,13 @@ body {
 	margin: 25px auto;
 }
 
+@media (max-width: 800px) {
+	#registerForm,
+	#loginForm {
+		width: 50vw;
+	}
+}
+
 .footer {
 	flex-shrink: 0;
 }
