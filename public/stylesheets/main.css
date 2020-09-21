@@ -55,3 +55,25 @@ body {
 .footer {
 	flex-shrink: 0;
 }
+
+/* aligning all images on the "All campgrounds/index" page   */
+
+.imageGrid {
+	background-color: white;
+	width: 250px;
+	height: 200px;
+	display: inline-block; /* makes it fit in like an <img>  */
+	background-size: contain; /* cover or contain  */
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.imageCaption {
+	margin-top: 200px;
+}
+.thumbnail {
+	padding-bottom: 12px;
+	/* border-color: transparent; */
+	max-height: 400vh;
+}
+/* --------------------------- */

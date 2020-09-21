@@ -19,14 +19,18 @@
         <!-- loop through the campgrounds array and diplay the name and image -->
         <% campgrounds.forEach(function(campground){ %>
             <div class="col-md-3 col-sm-6">
-                <div class="thumbnail">
-                    <img src="<%= campground.image %>">
-                    <div class="caption">
-                        <h4><%= campground.name %></h4>
+                <div class="thumbnail">  
+                    <div class=" imageGrid" style="background-image: url(<%= campground.image %>)">  
+                        <!-- <img src="<%= campground.image %>">   -->
+                        <div class="caption">
+                            <div class="imageCaption">
+                                <h4><%= campground.name %></h4>
+                                <p>
+                                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+                                </p>
+                            </div>
+                        </div>    
                     </div>
-                    <p>
-                        <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
-                    </p>
                 </div>
             </div>
         <% }); %>

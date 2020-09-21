@@ -12,7 +12,7 @@
         </div>
         <div class="col-md-9">
             <div class="thumbnail">
-                <img class="image-responsive"src="<%= campground.image %>">
+                <img src="<%= campground.image %>">
                 <div class="caption">
                     <h4 class="pull-right">$<%= campground.price %>/night</h4>
                     <h4> <a href="#"><%= campground.name %></a></h4>
@@ -31,6 +31,7 @@
                     <% } %>    
                 </div>
             </div>
+
             <div class="well">
                 <div class="text-right">
                     <a class ="btn  btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add New Comment</a>
