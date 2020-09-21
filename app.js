@@ -44,6 +44,10 @@ app.use(flash());
 // seedDB(); // commmented out to avoid rewriting the DB if not needed
 // populate the DB with default data everytime the server is restarted. The code is saved in file "seeds.js"
 
+app.locals.moment = require('moment');
+// make Moment JS available to display time since post was created
+// Moment is available for use in all view files via the variable named "moment"
+
 // ====== PASSPORT CONFIGURATION ==========
 
 app.use(

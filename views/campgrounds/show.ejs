@@ -19,7 +19,7 @@
                     <p><%= campground.description %></p>
                     <p> 
                         
-                        <em>Submitted by: <a href="/users/<%= campground.author.id%>"><%= campground.author.username %></a></em>
+                        <em>Submitted by: <a href="/users/<%= campground.author.id%>"><%= campground.author.username %></a>, <%= moment(campground.createdAt).fromNow() %></em>
                     </p>
                     <% if(currentUser && campground.author.id.equals(currentUser._id)) { %>  
                         <!-- currentUser comes from app.js file  where we set "res.locals.currentUser = req.user" -->
@@ -102,7 +102,7 @@
                             </strong>
 
                             <!--Show when the comment was made-->
-                            <span class="pull-right">10 days ago</span>
+                            <span class="pull-right"><%= moment(comment.createdAt).fromNow() %></span>
                             
                              <!--Printing the comment-->
                             <p> 
