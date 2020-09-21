@@ -12,13 +12,13 @@
     </header>
    
     <div class="row text-center" style="display:flex; flex-wrap:wrap;">
-        <div class="col-md-12">
+        <div class="col-md-12 col-md-offset-0 col-sm-offset-3 col-xs-offset-1">
             <h3>Our Most Popular Campgrounds!</h3>
         </div>
 
         <!-- loop through the campgrounds array and diplay the name and image -->
         <% campgrounds.forEach(function(campground){ %>
-            <div class="col-md-3 col-sm-6">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
                 <div class="thumbnail">  
                     <div class=" imageGrid" style="background-image: url(<%= campground.image %>)">  
                         <!-- <img src="<%= campground.image %>">   -->
