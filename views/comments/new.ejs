@@ -3,7 +3,7 @@
 
     <div class="row"></div>
         <h1 style="text-align: center;">Add New Comment to <%= campground.name %></h1>
-        <div style="width:30%; margin: 25px auto;">
+        <div id="newComment">
             <form action="/campgrounds/<%= campground._id %>/comments" method ="POST">
                 <div class="form-group"> <!--  class "form-group" helps group items together and add some spacing between the elements(boxes) -->
                     <input class="form-control" type="text" name="comment[text]" placeholder="text">

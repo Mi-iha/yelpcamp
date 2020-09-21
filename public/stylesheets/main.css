@@ -40,14 +40,18 @@ body {
 }
 
 #registerForm,
-#loginForm {
+#loginForm,
+#editComment,
+#newComment {
 	width: 30%;
 	margin: 25px auto;
 }
 
 @media (max-width: 800px) {
 	#registerForm,
-	#loginForm {
+	#loginForm,
+	#editComment,
+	#newComment {
 		width: 50vw;
 	}
 }
